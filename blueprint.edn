@@ -1,0 +1,10 @@
+{:itonami.blueprint/id "cloud-itonami-cofog-05.1"
+ :itonami.blueprint/name "Independent Municipal Waste Collection Robotics"
+ :itonami.blueprint/cofog "05.1"
+ :itonami.blueprint/domain :environmental-protection/waste-management
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:waste-reduction :public-health :route-efficiency]
+ :itonami.blueprint/governor :waste-operations-governor
+ :itonami.blueprint/robotics true
+ :itonami.blueprint/required-technologies [:robotics :telemetry :optimization :bpmn :audit-ledger]
+ :itonami.blueprint/status :public-oss}
