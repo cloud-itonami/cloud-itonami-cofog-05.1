@@ -7,4 +7,24 @@
  :itonami.blueprint/governor :waste-operations-governor
  :itonami.blueprint/robotics true
  :itonami.blueprint/required-technologies [:robotics :telemetry :optimization :bpmn :audit-ledger]
- :itonami.blueprint/status :public-oss}
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/maturity :implemented
+ :itonami.blueprint/implemented-slice
+ "Route Advisor ⊣ Waste Operations Governor, langgraph-clj StateGraph,
+ append-only audit ledger. A municipal waste-collection ROUTE
+ DISPATCH COORDINATION actor -- not direct collection-robot/vehicle
+ control authority and not a municipal diversion-rate compliance
+ authority. Four ops (`:log-route-pickup` / `:log-sorting-result` /
+ `:schedule-route-dispatch` / `:escalate-contamination`), all
+ `:effect :propose` only. Ten concrete governor checks elaborate this
+ blueprint's HARD invariants: propose-only effect, closed op
+ allowlist, closed proposal-effect allowlist (no direct
+ collection-robot/vehicle control), permanent vehicle-actuate block,
+ independent route verification/registration AND independent vehicle
+ verification/registration before dispatch scheduling, double-dispatch
+ guard, diversion-category validation, contamination-percentage
+ plausibility validation, and tonnage plausibility validation.
+ Contamination escalation ALWAYS escalates to a human route
+ coordinator; `:log-route-pickup` is the only op eligible to
+ auto-commit, and only at phase 3 when governor-clean. 64 tests / 185
+ assertions green, clj-kondo 0 errors."}
