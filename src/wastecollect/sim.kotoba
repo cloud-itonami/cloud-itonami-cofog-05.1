@@ -1,5 +1,5 @@
 (ns wastecollect.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean hauler through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean hauler through
   intake -> sorting-result filing (escalate/approve) -> dispatch
   scheduling (escalate/approve) -> contamination escalation
   (escalate/approve), then shows HARD-hold scenarios: a mis-wired
